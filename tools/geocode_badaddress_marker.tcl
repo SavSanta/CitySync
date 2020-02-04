@@ -6,12 +6,14 @@
 # Created:   2.04.2020
 
 set filename [open [lindex $argv 0] "r"]
+# TODO use environment temp variable for platform agnosticism
 set tempfile [open [string cat "/tmp/temp-" [file tail [lindex $argv 0]]] "w"]
 set lineno 0
 
 while {[gets $filename line] >= 0} {
     set lineno [expr {$lineno + 1}]
 
+# TODO use the package require csv so that can split better conditions
     set splitted [split $line ,]
     set col0 [lindex $splitted 0]
     set col3 [lindex $splitted 3]
