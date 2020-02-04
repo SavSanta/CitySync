@@ -1,5 +1,10 @@
 #!/usr/bin/env tclsh
 
+# geocode_badaddress_marker.tcl
+# Separates potentially bad addresses out by prepending the first column of CSV with ZZZIGNORE.
+# Author:    Ru Uba (SavSanta)
+# Created:   2.04.2020
+
 set filename [open [lindex $argv 0] "r"]
 set tempfile [open [string cat "/tmp/temp-" [file tail [lindex $argv 0]]] "w"]
 set lineno 0
